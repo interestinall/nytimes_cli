@@ -6,4 +6,8 @@ gem 'pry'
 
 gem 'require_all'
 
+# gem 'open_uri_redirections'
+
+gem 'mechanize'
+
 gemspec
