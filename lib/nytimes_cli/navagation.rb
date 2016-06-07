@@ -1,5 +1,3 @@
-# require 'pry'
-
 class Navagation
 
   attr_accessor :start_index, :end_index, :articles_length

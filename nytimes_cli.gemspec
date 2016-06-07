@@ -18,7 +18,6 @@ Gem::Specification.new do |spec|
 
   spec.files         = ["lib/nytimes_cli/cli.rb", "lib/nytimes_cli/navagation.rb", "lib/nytimes_cli/version.rb", "lib/article.rb", "lib/nytimes_cli.rb", "lib/scraper.rb", "bin/console", "bin/nytimes_cli", "bin/setup"]
   spec.executables  << "nytimes_cli"
-  spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.12"
   spec.add_development_dependency "rake", "~> 10.0"
