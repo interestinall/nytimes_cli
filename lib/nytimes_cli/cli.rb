@@ -10,42 +10,96 @@ class NytimesCli::CLI
     puts "http://www.nytimes.com"
     puts ""
     puts ""
-    puts ""
-    puts "Enter a number followed by the enter key."
-    puts "1. Front page "
-    puts "2. Sections "
+    print_articles(0, 9 )
     puts ""
     puts ""
-
-    # get_front_page
-    get_story
+    puts "There are currently " + num_articles + " articles."
+    puts "Enter the number you would like to read"
+    num = gets.chomp
+    print_article(num)
+   
 
   end
 
 
-  def get_front_page
-    s = Scraper.scrape_front_page
-  
-    s
+  #get array of hashes, front page articles, print them
+  # user chooses number
+  # user number to get the number of the hash, pull out the url, 
+  # send url to get the indivudal story
+  # print story
+
+
+  def get_articles_from_front_page
+    array = Scraper.scrape_front_page
+    articles = Article.create_articles_from_array(array)
   end
 
-  def get_story
-    s = Scraper.article("http://www.nytimes.com/2016/06/07/nyregion/public-school-188-in-manhattan-about-half-the-students-are-homeless.html")
-    s
+  def num_articles
+    articles.length.to_s
+  end
+
+  def input_to_index(num)
+    num.to_i - 1
   end
 
 
   #TODO
-
-
-  def list_categories
+  def print_articles(first_index, last_index )
+    array = get_articles_from_front_page
+    a = array[first_index..last_index]
+    a.each_with_index do |article, index|
+      i = index + 1
+      puts i.to_s + ". " + article.title
+    end
+   
   end
+
+  def articles
+    Article.all
+  end
+
 
   #TODO
-  def list_articles
+  def get_article_url(num)
+   i = input_to_index(num)
+   a = articles[i]
+   a.url
   end
-  #TODO
-  def show_article
+
+  def get_article(url)
+    hash = Scraper.scrape_article(url)
+    article = Article.create_article_from_hash(hash)
   end
+
+  # def show_article(url)
+  #   a = get_article
+  #   puts a.title
+  #   puts ""
+  #   puts a.author
+  #   puts ""
+  #   puts a.story
+  #   puts ""
+  #   puts ""
+  #   puts "Link to nytimes.com: " + a.url 
+  # end
+
+  def print_article(num)
+    url = get_article_url(num)
+    a = get_article(url)
+    puts a.title
+    puts ""
+    puts a.author
+    puts ""
+    puts a.story
+    puts ""
+    puts ""
+    puts "Link to nytimes.com: " + a.url
+
+  end
+
+ 
+
+
+
 
 end

@@ -1,2 +1,0 @@
-class Articles
-end
