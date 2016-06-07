@@ -35,9 +35,7 @@ class Article
     a.url = hash[:url]
     a.author = hash[:author]
     a.story = hash[:story]
-    binding.pry
     a
-
   end
 
 
