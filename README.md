@@ -23,7 +23,9 @@ It's pretty self-explanatory. Type in 'man' to get a list of possible commands.
 
 Fork it. Mess with it. Send a PR.
 
-To run from the command line: ruby bin/nytimes
+To run from the command line: 
+    
+    $ ruby bin/nytimes
 
 ## Contributing
 
