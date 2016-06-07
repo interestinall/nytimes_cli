@@ -34,9 +34,46 @@ class Article
     a.title = hash[:title]
     a.url = hash[:url]
     a.author = hash[:author]
-    a.story = hash[:story]
+    string = hash[:story]
+    a.story = self.word_wrap(hash[:story])
     a
   end
+
+  def self.word_wrap(text)
+   
+    paragraphs = []
+
+    paragraphs = text.split(/\n/)
+    finshed_text = ""
+    
+
+    paragraphs.each do |p|
+      final_p = self.p_wrap(p, 78)
+      finshed_text << "\n" + final_p
+    end
+    finshed_text
+  end
+  
+
+  def self.p_wrap(s, width=78)
+    lines = []
+    line = ""
+    s.split(/\s+/).each do |word|
+      if line.size + word.size >= width
+        lines << line
+        line = word
+      elsif line.empty?
+       line = word
+      else
+       line << " " << word
+     end
+     end
+     lines << line if line
+    return lines.join "\n"
+  end
+
+ 
+
 
 
 

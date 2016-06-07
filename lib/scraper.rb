@@ -45,12 +45,15 @@ class Scraper
     article_string = ""
    
     article.search(".story-body *").each do |paragraph|
+
+     if  !article_string.include?(paragraph.children.text)
       
       if paragraph.name == "p" && paragraph.children.text != "Advertisement"
-         article_string << paragraph.children.text + "\n" + "\n" 
+         article_string << paragraph.children.text + "\n" + "\n"
       elsif paragraph.name == "h4" && !paragraph.children.text.nil?
-         article_string << paragraph.children.text + "\n" + "\n" 
+         article_string << paragraph.children.text + "\n" + "\n"
       end
+     end
       
     end
     story_hash[:story] = article_string
