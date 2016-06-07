@@ -46,7 +46,6 @@ class Article
     paragraphs = text.split(/\n/)
     finshed_text = ""
     
-
     paragraphs.each do |p|
       final_p = self.p_wrap(p, 78)
       finshed_text << "\n" + final_p
@@ -55,6 +54,8 @@ class Article
   end
   
 
+
+#following method was taken from https://www.safaribooksonline.com/library/view/ruby-cookbook/0596523696/ch01s15.html
   def self.p_wrap(s, width=78)
     lines = []
     line = ""
