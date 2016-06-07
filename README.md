@@ -29,7 +29,7 @@ Fork it. Mess with it. Send a PR.
 
 To run from the command line: 
     
-    $ ruby bin/nytimes
+    $ ruby bin/nytimes_cli
 
 ## Contributing
 
