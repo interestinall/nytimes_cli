@@ -17,6 +17,10 @@ Install it yourself:
 
 ## Usage
 
+Run the program:
+
+    $ nytimes_cli
+
 It's pretty self-explanatory. Type in 'man' to get a list of possible commands.
 
 ## Development
