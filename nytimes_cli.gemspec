@@ -13,11 +13,12 @@ Gem::Specification.new do |spec|
   spec.description   = %q{Allows users to browse nytimes.com and read articles from the command line.}
   spec.homepage      = "https://github.com/interestinall/nytimes_cli"
   spec.license       = "MIT"
+  spec.bindir        = "bin"
 
  
 
   spec.files         = ["lib/nytimes_cli/cli.rb", "lib/nytimes_cli/navagation.rb", "lib/nytimes_cli/version.rb", "lib/article.rb", "lib/nytimes_cli.rb", "lib/scraper.rb", "bin/console", "bin/nytimes_cli", "bin/setup"]
-  spec.executables  << "nytimes_cli"
+  spec.executables   = [“nytimes_cli”] or << "nytimes_cli"
 
   spec.add_development_dependency "bundler", "~> 1.12"
   spec.add_development_dependency "rake", "~> 10.0"
